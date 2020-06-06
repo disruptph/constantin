@@ -1,5 +1,5 @@
 require "constantin/version"
-require "constantin/constant"
+require "constantin/option"
 require "constantin/active_record"
 
 module Constantin

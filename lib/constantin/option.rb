@@ -1,5 +1,5 @@
 module Constantin
-  class Constant
+  class Option
     # Supports array of strings or hash
     # ex.
     # define_options('PH', 'TH', {'USA' => 'US'})
