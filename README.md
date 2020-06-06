@@ -1,5 +1,5 @@
 # Constantin
-A handy way to utilize constants especially on options.
+A handy way to manage constants especially for options.
 
 ## Installation
 
