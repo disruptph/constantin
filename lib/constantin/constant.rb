@@ -1,5 +1,4 @@
 module Constantin
-  debugger
   class Constant
     # Supports array of strings or hash
     # ex.
