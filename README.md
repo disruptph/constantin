@@ -17,7 +17,7 @@ And then execute:
 
 ```ruby
 # app/constants/country.rb
-class Country < Constantin::Constant
+class Country < Constantin::Option
   define_options 'US', 'PH', 'JP'
   define_options { NZ: "New Zealand"}
 end
