@@ -1,8 +1,5 @@
 # Constantin
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/constantin`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A handy way to utilize constants especially on options.
 
 ## Installation
 
@@ -16,13 +13,40 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install constantin
-
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# app/constants/country.rb
+class Country < Constantin::Constant
+  define_options 'US', 'PH', 'JP'
+  define_options { NZ: "New Zealand"}
+end
+
+Country::ALL
+=> ['US', 'PH', 'JP', 'New Zealand']
+
+Country.constants
+=> [:US, :PH, :JP, :NZ]
+
+Country::US
+=> 'US'
+```
+
+Validate field in model against constants
+```ruby 
+class User
+  has_options :country, field: address
+end
+
+user = User.new
+user.address = "US"
+user.valid?
+=> true
+
+user.address = "NZ"
+user.valid?
+=> false
+```
 
 ## Development
 
