@@ -4,6 +4,9 @@ module Constantin
     # ex.
     # define_options('PH', 'TH', {'USA' => 'US'})
     #
+    # define_option_group 'ASIA' do
+    #   [PH, TH]
+    # end
     class << self
       def define_options(*constants)
         # Transform to key value format
@@ -28,8 +31,8 @@ module Constantin
         const_set('ALL', all_values)
       end
 
-      def define_group_option
-        # TODO Group constants
+      def define_option_group(name)
+        const_set(transform_key(name), yield)
       end
 
       def add_value(val)
