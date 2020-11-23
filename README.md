@@ -20,6 +20,10 @@ And then execute:
 class Country < Constantin::Option
   define_options 'US', 'PH', 'JP'
   define_options { NZ: "New Zealand"}
+
+  define_option_group 'ASIA' do
+    [PH, JP]
+  end
 end
 
 Country::ALL
@@ -28,8 +32,11 @@ Country::ALL
 Country.constants
 => [:US, :PH, :JP, :NZ]
 
-Country::US
-=> 'US'
+Country::NZ
+=> 'New Zealand'
+
+Country::ASIA
+=> ['PH','JP']
 ```
 
 Validate field in model against constants
@@ -43,7 +50,7 @@ user.address = "US"
 user.valid?
 => true
 
-user.address = "NZ"
+user.address = "America"
 user.valid?
 => false
 ```
